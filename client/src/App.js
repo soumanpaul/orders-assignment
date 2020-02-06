@@ -1,11 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import axios from 'axios';
 
-function App() {
+const App = () => {
+  const [state, setState] = useState('State information')
+  
+  const getState = async () => {
+    const res = await axios.get('/api/testapi')
 
-  useEffect()
+    setState(res.data)
+  }
+  
+  useEffect(() => {
+    getState();
+  },[])
 
-  return <div className="App"></div>;
+  console.log(state)
+
+return <div className="App">Orders application {state}</div>;
 }
 
 export default App;

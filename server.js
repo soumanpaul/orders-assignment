@@ -66,7 +66,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 //Mount routers
-app.use("/testapi", (req, res) => {
+app.use("/api/testapi", (req, res) => {
   res.status(200).json("Hi, i am working");
 });
 // app.use("/", orders);
